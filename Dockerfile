@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 ENV VERSION=1.2.0
 
-COPY zip_job.py/ /tmp/
+COPY conf /tmp/
 
 RUN apt update && apt install --no-install-recommends --assume-yes \
  	python3 \
