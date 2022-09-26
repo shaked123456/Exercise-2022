@@ -1,11 +1,12 @@
 pipeline {
-    agent {
-        dockerfile {
-        filename 'Dockerfile'
-        }  
-    }
+    agent none
     stages {
 	    stage('build') {
+            agent {
+                dockerfile {
+                filename 'Dockerfile'
+                }  
+            }		    
             steps {
                 sh 'python zip_job.py'
             }
