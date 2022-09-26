@@ -21,6 +21,6 @@ for arr in array:
 
 for arr in array:
     try:
-    open('{}_{}.zip'.format(arr, VERSION), 'r')
+       open('{}_{}.zip'.format(arr, VERSION), 'r')
     except IndexError:
-    print("ERROR: something went wrong")
+                     print("ERROR: something went wrong")
