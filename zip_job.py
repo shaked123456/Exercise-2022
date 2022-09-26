@@ -11,7 +11,7 @@ for arr in array:
 
 for arr in array:
     try:
-    open('{}.txt'.format(arr), 'r'):
+    open('{}.txt'.format(arr), 'r')
     except IndexError:
     print("ERROR: something went wrong")
 
