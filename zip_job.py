@@ -11,9 +11,9 @@ for arr in array:
 
 for arr in array:
     try:
-    open('{}.txt'.format(arr), 'r')
+       open('{}.txt'.format(arr), 'r')
     except IndexError:
-    print("ERROR: something went wrong")
+                     print("ERROR: something went wrong")
 
 for arr in array:
     with ZipFile('{}_{}.zip'.format(arr, VERSION), 'w') as zipf:
