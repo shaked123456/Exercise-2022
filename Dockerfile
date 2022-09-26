@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 ENV VERSION=1.2.0
 
-COPY conf /tmp/
+COPY conf/ /opt/docker/
 
 RUN apt update && apt install --no-install-recommends --assume-yes \
  	python3 \
