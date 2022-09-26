@@ -2,7 +2,8 @@ pipeline {
     agent {
         dockerfile {
         filename 'Dockerfile'
-        }  	
+        }  
+    }
     stages {
 	    stage('build') {    
             steps {
@@ -12,7 +13,6 @@ pipeline {
     }
 	
     post {
-        // Clean after build
         always {
             cleanWs(cleanWhenAborted: true,
             cleanWhenFailure: true,
@@ -33,6 +33,5 @@ pipeline {
             subject: 'Succeeded Pipeline: ${currentBuild.fullDisplayName}',
 	    body: 'Pipeline Succeeded: ${env.BUILD_URL}'
 	}		
-    }
     }
 }
