@@ -1,9 +1,4 @@
 pipeline {
-    agent {
-        docker {
-            image 'ubuntu:v1'
-        }
-    }
 
     stages {
 	    stage('build') {
@@ -36,4 +31,5 @@ pipeline {
 			body: 'Pipeline Succeeded: ${env.BUILD_URL}'
 	    }		
     }
+}
 }
