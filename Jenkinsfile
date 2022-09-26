@@ -3,7 +3,7 @@ pipeline {
     stages {
 	    stage('build') {
             steps {
-                sh 'python abc.py'
+                sh 'python zip_job.py'
             }
         }
     }
