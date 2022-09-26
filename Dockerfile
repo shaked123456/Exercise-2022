@@ -4,6 +4,6 @@ RUN apt update && apt install --no-install-recommends --assume-yes \
  	python3 \
         vim \
 	zip \
-	unzip
+	unzip \
 COPY zip_job.py /tmp
 ENTRYPOINT ["./InitialScript.sh"]	
