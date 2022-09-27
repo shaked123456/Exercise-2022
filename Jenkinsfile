@@ -5,11 +5,30 @@ pipeline {
         }  
     }
     stages {
-	    stage('build') {    
+	    
+	stage('build') {    
             steps {
                 sh 'python zip_job.py'
             }
         }
+	    
+        stage('Artifactory download and upload'){
+            steps {
+                script{
+                    // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
+                    def server = Artifactory.server SERVER_ID
+
+                    // Read the download and upload specs:
+                    def uploadSpec = readFile '/tmp/zip_job.py'
+
+                    // Upload files to Artifactory:
+                    def buildInfo = server.upload spec: uploadSpec
+
+                    // Publish build-info to Artifactory
+                    server.publishBuildInfo buildInfo
+                }
+	    }
+	}	
     }
 	
     post {
