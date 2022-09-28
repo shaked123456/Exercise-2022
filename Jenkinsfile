@@ -1,7 +1,7 @@
 pipeline {
     agent {
 	docker {
-	    label "ubuntu"
+	    label "zip-job-docker"
             image 'ubuntu:v1' }
     }
 //    agent {
