@@ -1,5 +1,5 @@
 pipeline {
-stages {
+ stages {
     stage('Build Stage') {
         agent {
            dockerfile{
@@ -9,5 +9,5 @@ stages {
            echo 'testing stage running'
            sh "ls"
        }
-}
+ }
 }    
