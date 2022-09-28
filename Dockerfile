@@ -15,6 +15,8 @@ COPY InitialScript.sh /tmp/
 
 ENTRYPOINT ["chmod 777 /tmp/InitialScript.sh"]
 
+ENTRYPOINT ["echo '192.168.1.242   artifactory-tlv' >> /etc/hosts"]
+
 ENTRYPOINT ['/tmp/InitialScript.sh']
 
 ENTRYPOINT ["sh", "-c", "sleep 387482748272847289"]
