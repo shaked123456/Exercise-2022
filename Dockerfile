@@ -13,4 +13,5 @@ RUN apt update && apt install --no-install-recommends --assume-yes \
 	unzip \
 	curl
 	
-ENTRYPOINT ["echo $PATH"]	
+ENTRYPOINT ['InitialScript.sh']
+CMD ['run']	
