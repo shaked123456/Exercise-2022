@@ -1,4 +1,3 @@
-pipeline {
  stages {
     stage('Build Stage') {
         agent {
@@ -10,4 +9,3 @@ pipeline {
            sh "ls"
        }
  }
-}    
