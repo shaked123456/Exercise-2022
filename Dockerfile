@@ -8,7 +8,9 @@ RUN apt update && apt install --no-install-recommends --assume-yes \
     zip \
     unzip \
     curl
-    
+
+RUN echo "192.168.1.242   artifactory-tlv" >> /etc/hosts
+
 COPY zip_job.py /tmp/
 
 COPY InitialScript.sh /tmp/
