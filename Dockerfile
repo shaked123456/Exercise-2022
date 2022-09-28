@@ -10,6 +10,7 @@ RUN apt update && apt install --no-install-recommends --assume-yes \
  	python3 \
         vim \
 	zip \
-	unzip
+	unzip \
+	curl
 	
 #ENTRYPOINT ["./InitialScript.sh"]	
