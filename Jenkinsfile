@@ -4,7 +4,6 @@ pipeline {
 	docker {
 	    label "zip-job-docker"
             image 'ubuntu:v1' }
-    }
 
     stages {
 	    
@@ -43,4 +42,5 @@ pipeline {
 	    body: 'Pipeline Succeeded: ${env.BUILD_URL}'
 	}		
     }
+    }	    
 }
