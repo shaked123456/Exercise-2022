@@ -1,4 +1,5 @@
- stages {
+pipeline { 
+stages {
     stage('Build Stage') {
         agent {
            dockerfile{
@@ -9,4 +10,5 @@
            sh "ls"
        }
  }
+}
 }
