@@ -13,4 +13,4 @@ RUN apt update && apt install --no-install-recommends --assume-yes \
 	unzip \
 	curl
 	
-ENTRYPOINT ["python3 /tmp/zip_job.py"]	
+ENTRYPOINT ["python3 zip_job.py"]	
