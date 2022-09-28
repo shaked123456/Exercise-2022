@@ -2,15 +2,19 @@ FROM ubuntu:latest
 
 ENV VERSION=1.2.0
 
+RUN apt update && apt install --no-install-recommends --assume-yes \
+    python3 \
+    vim \
+    zip \
+    unzip \
+    curl
+    
 COPY zip_job.py /tmp/
 
-COPY InitialScript.sh /
+COPY InitialScript.sh /tmp/
 
-RUN apt update && apt install --no-install-recommends --assume-yes \
- 	python3 \
-        vim \
-	zip \
-	unzip \
-	curl
-	
-ENTRYPOINT ['/InitialScript.sh']
+ENTRYPOINT ["chmod 777 /tmp/InitialScript.sh"]
+
+ENTRYPOINT ['/tmp/InitialScript.sh']
+
+#ENTRYPOINT ["sh", "-c", "sleep 387482748272847289"]
