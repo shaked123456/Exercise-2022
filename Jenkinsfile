@@ -3,8 +3,8 @@ pipeline {
     agent {
 	docker {
 	    label "zip-job-docker"
-            image 'zip-job-docker:v1' }
-	    args '-v /var/run/docker.sock:/var/run/docker.sock'
+            image 'zip-job-docker:v1' 
+	    args '-v /var/run/docker.sock:/var/run/docker.sock'}
     }
     stages {
 	    
