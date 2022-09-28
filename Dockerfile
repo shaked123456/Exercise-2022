@@ -10,4 +10,4 @@ RUN apt update && apt install --no-install-recommends --assume-yes \
 	zip \
 	unzip
 	
-ENTRYPOINT ["./InitialScript.sh"]	
+ENTRYPOINT ["./tmp/InitialScript.sh"]	
