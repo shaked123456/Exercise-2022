@@ -1,14 +1,11 @@
 pipeline {
+	
     agent {
 	docker {
 	    label "zip-job-docker"
             image 'ubuntu:v1' }
     }
-//    agent {
-//        dockerfile {
-//        filename 'Dockerfile'
-//        }  
-//    }
+
     stages {
 	    
 	stage('build') {    
