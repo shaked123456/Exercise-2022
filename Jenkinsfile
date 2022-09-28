@@ -1,7 +1,8 @@
 pipeline {
     agent {
-	label "ubuntu:v1"
-        docker { image 'ubuntu:v1' }
+	docker {
+	    label "ubuntu"
+            image 'ubuntu:v1' }
     }
 //    agent {
 //        dockerfile {
