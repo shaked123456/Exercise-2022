@@ -9,7 +9,6 @@ pipeline {
 	stage('build') {    
             steps {
                 sh 'python zip_job.py'
-		sh 'jf rt upload --url http://192.168.1.242:8082/artifactory/ --user 'admin' --password 'Nopass5!' a_1.2.0.zip binary-storage/'
             }
         }
 	    
@@ -30,11 +29,11 @@ pipeline {
                 }
 	    }
 	}
-//        stage('Upload to Artifactory') {
-//            steps {
-//                sh 'jf rt upload --url http://192.168.1.242:8082/artifactory/ --user 'admin' --password 'Nopass5!' a_1.2.0.zip binary-storage/'
-//            }
-//        }	    
+        stage('Upload to Artifactory') {
+            steps {
+                sh '''jf rt upload --url http://192.168.1.242:8082/artifactory/ --user 'admin' --password 'Nopass5!' a_1.2.0.zip binary-storage/'''
+            }
+       }	    
     }	
     post {
         always {
