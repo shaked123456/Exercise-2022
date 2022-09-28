@@ -1,16 +1,17 @@
 pipeline {	
-    agent {
-        dockerfile{
-		filename 'Dockerfile'
-		args '--privileged'
-	 	label 'zip-job-docker'}
-    }
+    agent none
     stages {	    
 	stage('Build Stage') {    
             steps {
+                agent {
+                dockerfile{
+		filename 'Dockerfile'
+		args '--privileged'
+	 	label 'zip-job-docker'}
+		}
                 sh 'python3 zip_job.py'
             }
-        }
+         }
 
         stage('Upload zip files to Artifactory') {
             steps {
