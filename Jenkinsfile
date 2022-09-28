@@ -1,9 +1,9 @@
 pipeline {
     agent any
-//        dockerfile {
-//        filename 'Dockerfile'
-//        }  
-//  }
+        dockerfile {
+        filename 'Dockerfile'
+        }  
+  }
     stages {
 	    
 	stage('build') {    
