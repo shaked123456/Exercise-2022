@@ -3,13 +3,13 @@ pipeline {
     agent {
 	docker {
 	    label "zip-job-docker"
-            image 'ubuntu:v1' }
+            image 'zip-job-docker:v1' }
     }
     stages {
 	    
 	stage('build') {    
             steps {
-                sh 'python zip_job.py'
+                sh 'python3 zip_job.py'
             }
         }
 
