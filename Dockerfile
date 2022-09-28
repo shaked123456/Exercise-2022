@@ -14,4 +14,3 @@ RUN apt update && apt install --no-install-recommends --assume-yes \
 	curl
 	
 ENTRYPOINT ['/tmp/InitialScript.sh']
-CMD ['run']	
