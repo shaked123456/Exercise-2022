@@ -2,7 +2,7 @@ pipeline {
     agent {
         dockerfile{
 	     filename 'Dockerfile'
-             args '--privileged'
+             args '--privileged --add-host artifactory-tlv:192.168.1.242'
 	     label 'zip-job-docker'}
         }
     stages {	    
