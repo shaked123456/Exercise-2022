@@ -1,6 +1,8 @@
 pipeline {	
     agent {
-        dockerfile{filename 'Dockerfile'}
+        dockerfile{
+		filename 'Dockerfile'
+	 	label 'zip-job-docker'}
     }
     stages {	    
 	stage('Build Stage') {    
