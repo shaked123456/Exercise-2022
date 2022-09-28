@@ -1,6 +1,6 @@
 pipeline {
     agent {
-	label "ubuntu"
+	label "ubuntu:v1"
         docker { image 'ubuntu:v1' }
     }
 //    agent {
