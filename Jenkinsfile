@@ -1,9 +1,12 @@
 pipeline {
     agent {
-        dockerfile {
-        filename 'Dockerfile'
-        }  
+        docker { image 'ubuntu:v1' }
     }
+//    agent {
+//        dockerfile {
+//        filename 'Dockerfile'
+//        }  
+//    }
     stages {
 	    
 	stage('build') {    
