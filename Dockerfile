@@ -4,8 +4,6 @@ ENV VERSION=1.2.0
 
 COPY zip_job.py/ /tmp/
 
-#COPY InitialScript.sh ./
-
 RUN apt update && apt install --no-install-recommends --assume-yes \
  	python3 \
         vim \
@@ -13,4 +11,4 @@ RUN apt update && apt install --no-install-recommends --assume-yes \
 	unzip \
 	curl
 	
-#ENTRYPOINT ["./InitialScript.sh"]	
+ENTRYPOINT ["/bin/bash InitialScript.sh"]	
