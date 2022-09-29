@@ -27,10 +27,10 @@ pipeline {
             cleanWhenUnstable: true,
             deleteDirs: true,
             notFailBuild: true,
-            disableDeferredWipeout: true,
+            disableDeferredWipeout: true),
 	    mail to: "shaked@wizards.co.il",
             subject: "Test Email",
-            body: "Test")
+            body: "Test"
         }	
 }
 }	
