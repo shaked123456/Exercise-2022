@@ -13,7 +13,7 @@ RUN echo "192.168.1.242   artifactory-tlv" >> /etc/hosts
 
 COPY ["zip_job.py", "InitialScript.sh", "/tmp/"] 
 
-ENTRYPOINT ["sh", "-c", "chmod 777 /tmp/InitialScript.sh && /tmp/InitialScript.sh && sleep 387482748272847289"]
+ENTRYPOINT ["/bin/sh", "-c", "chmod 777 /tmp/InitialScript.sh && /tmp/InitialScript.sh && sleep 387482748272847289"]
 
 #ENTRYPOINT ['/tmp/InitialScript.sh']
 
