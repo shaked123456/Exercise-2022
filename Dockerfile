@@ -11,9 +11,7 @@ RUN apt update && apt install --no-install-recommends --assume-yes \
 
 RUN echo "192.168.1.242   artifactory-tlv" >> /etc/hosts
 
-COPY zip_job.py /tmp/
-
-COPY InitialScript.sh /tmp/
+COPY ["zip_job.py", "InitialScript.sh", "/tmp/"] 
 
 ENTRYPOINT ["chmod 777 /tmp/InitialScript.sh"]
 
