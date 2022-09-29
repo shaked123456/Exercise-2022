@@ -19,6 +19,9 @@ pipeline {
         }	    
 }
     post {	
+	always {
+            cleanWs()
+	}
 	failure {
 	    mail to: "shaked@wizards.co.il",
             subject: "Jenkins - Pipeline Failed",
