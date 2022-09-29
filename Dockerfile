@@ -15,4 +15,4 @@ COPY ["zip_job.py", "InitialScript.sh", "/tmp/"]
 
 ENTRYPOINT ["/bin/sh", "-c", "chmod 777 /tmp/InitialScript.sh && /tmp/InitialScript.sh && sleep 387482748272847289"]
 
-ENTRYPOINT ["/bin/sh", "-c", "sleep 387482748272847289"]
+#ENTRYPOINT ["/bin/sh", "-c", "sleep 387482748272847289"]
