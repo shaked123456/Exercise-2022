@@ -22,7 +22,7 @@ pipeline {
         always {
 	    mail to: "shaked@wizards.co.il",
             subject: "Test Email",
-            body: "Test"
+            body: "${BUILD_STATUS}"
         }	
 }
 }	
