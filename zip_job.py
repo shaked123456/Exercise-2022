@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
 from zipfile import *
+import os
+
 
 array = ['a', 'b', 'c', 'd']
-VERSION = '1.2.0'
+VERSION = os.environ['VERSION']
 
 
 for arr in array:
