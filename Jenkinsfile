@@ -24,5 +24,15 @@ pipeline {
             subject: "Test Email",
             body: "${env.BUILD_STATUS}"
         }	
+	failure {
+	    mail to: "shaked@wizards.co.il",
+            subject: "Jenkins - Pipeline Failed",
+            body: "Pipeline Failed: ${env.BUILD_URL}"
+	}
+	success {
+	    mail to: "shaked@wizards.co.il",
+            subject: "Jenkins - Pipeline Succeeded",
+            body: "Pipeline Succeeded: ${env.BUILD_URL}"
+	}	    
 }
 }	
