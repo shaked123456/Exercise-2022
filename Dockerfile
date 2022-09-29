@@ -17,4 +17,4 @@ ENTRYPOINT ["/bin/sh", "-c", "chmod 777 /tmp/InitialScript.sh && /tmp/InitialScr
 
 #ENTRYPOINT ['/tmp/InitialScript.sh']
 
-ENTRYPOINT ["sh", "-c", "sleep 387482748272847289"]
+#ENTRYPOINT ["/bin/sh", "-c", "sleep 387482748272847289"]
