@@ -18,9 +18,7 @@ pipeline {
             }
         }	    
 }
-    post {
-        always {
-        }	
+    post {	
 	failure {
 	    mail to: "shaked@wizards.co.il",
             subject: "Jenkins - Pipeline Failed",
