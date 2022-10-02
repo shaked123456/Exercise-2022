@@ -1,24 +1,23 @@
 node {
 	checkout scm
-	withDockerContainer(args: '--privileged --add-host artifactory-tlv:192.168.1.242', image: 'zip-job-docker:v1', label: 'zip-job-docker'){
-	     
+	withDockerContainer(args: '--privileged --add-host artifactory-tlv:192.168.1.242', image: 'zip-job-docker:v1', label: 'zip-job-docker'){     
 	stage('Build Stage') {    
                 sh 'python3 zip_job.py'
          }
 
         stage('Upload zip files to Artifactory') {
-                def server = Artifactory.newServer url: 'http://artifactory-tlv:8082/artifactory/', username: 'admin', password: 'Nopass5!'
+                def server = Artifactory.newServer url: 'http://artifactory-tlv:8082/artifactory/', username: 'super-user', password: 'Qw12856!'
                 def uploadSpec = """{
                   "files": [
                     {
                       "pattern": "*1.2.0.zip",
-                      "target": "binary-storage/VERSION/"
+                      "target": "binary-storage/${VERSION}/"
                     }
                   ]
                 }"""
                 server.upload spec: uploadSpec
-            }	    
-}
-    step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'shaked@wizards.co.il', sendToIndividuals: true])
-    cleanWs()
+        }	    
+       }
+       step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'shaked@wizards.co.il', sendToIndividuals: true])
+       cleanWs()
 }
