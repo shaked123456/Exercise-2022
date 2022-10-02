@@ -15,7 +15,7 @@ pipeline {
         stage('Upload zip files to Artifactory') {
             steps {
 		rtServer (
-                       id: 'artifactory-tlv,
+                       id: 'artifactory-tlv',
     		       url: 'http://artifactory-tlv:8082/artifactory/',
                        username: 'admin',
                        password: 'Nopass5!',
