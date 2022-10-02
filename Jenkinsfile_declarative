@@ -6,7 +6,7 @@ pipeline {
 	     label 'zip-job-docker'}
         }
     environment {
-    VERSION=$VERSION
+    VERSION="${env.VERSION}"
     }
     stages {	    
 	stage('Build Stage') {    
