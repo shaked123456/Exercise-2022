@@ -14,6 +14,7 @@ pipeline {
 
         stage('Upload zip files to Artifactory') {
             steps {
+	        buildInfo.env.collect()
 		rtServer (
                        id: 'artifactory-tlv',
     		       url: 'http://artifactory-tlv:8082/artifactory/',
