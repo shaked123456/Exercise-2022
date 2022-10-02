@@ -5,6 +5,9 @@ pipeline {
              args '--privileged --add-host artifactory-tlv:192.168.1.242'
 	     label 'zip-job-docker'}
         }
+    environment {
+    VERSION=$VERSION
+    }
     stages {	    
 	stage('Build Stage') {    
             steps {
@@ -28,7 +31,7 @@ pipeline {
                              "files": [   
                                {
 			         "pattern": "*1.2.0.zip",
-                                 "target": "binary-storage/$VERSION/"               
+                                 "target": "binary-storage/${VERSION}/"               
 			       }
                              ]
                        }'''
