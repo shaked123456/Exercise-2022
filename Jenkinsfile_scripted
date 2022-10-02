@@ -1,4 +1,5 @@
 node {
+	checkout scm
 	withDockerContainer(args: '--privileged --add-host artifactory-tlv:192.168.1.242', image: 'zip-job-docker:v1'){
 	     
 	stage('Build Stage') {    
