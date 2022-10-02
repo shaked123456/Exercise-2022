@@ -18,8 +18,8 @@ pipeline {
 		rtServer (
                        id: 'artifactory-tlv',
     		       url: 'http://artifactory-tlv:8082/artifactory/',
-                       username: 'admin',
-                       password: 'Nopass5!',
+                       username: 'super-user',
+                       password: 'Qw12856!!',
                        timeout: 300
                )
 	       rtUpload (
