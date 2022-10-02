@@ -19,19 +19,14 @@ node {
                 server.upload spec: uploadSpec
             }	    
 }
-    post {	
-	always {
-            cleanWs()
-	}
-	failure {
-	    mail to: "shaked@wizards.co.il",
-            subject: "Jenkins - Pipeline Failed",
-            body: "Pipeline Failed: ${env.BUILD_URL}"
-	}
-	success {
-	    mail to: "shaked@wizards.co.il",
-            subject: "Jenkins - Pipeline Succeeded",
-            body: "Pipeline Succeeded: ${env.BUILD_URL}"
-	}	    
+try {
+    throw new Exception('fail!')
+} catch (all) {
+    currentBuild.result = "FAILURE"
+} finally {
+     node('master') {
+        step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'shaked@wizards.co.il', sendToIndividuals: true])
+    }   
+}
 }
 }
