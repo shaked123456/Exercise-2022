@@ -42,4 +42,3 @@ node {
             body: "Pipeline Succeeded: ${env.BUILD_URL}"
 	}	    
 }
-}	
