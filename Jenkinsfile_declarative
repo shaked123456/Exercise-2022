@@ -27,7 +27,7 @@ pipeline {
                              "files": [   
                                {
 			         "pattern": "*1.2.0.zip",
-                                 "target": "binary-storage/${VERSION}/"
+                                 "target": "binary-storage/'''${VERSION}'''/"
                                }
                              ]
                        }'''
