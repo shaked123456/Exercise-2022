@@ -5,13 +5,10 @@ node {
 	     label 'zip-job-docker'}
 	     
 	stage('Build Stage') {    
-            steps {
                 sh 'python3 zip_job.py'
-            }
          }
 
         stage('Upload zip files to Artifactory') {
-            steps {
 	     script {
                 def server = Artifactory.newServer url: 'http://artifactory-tlv:8082/artifactory/', username: 'admin', password: 'Nopass5!'
                 def uploadSpec = """{
@@ -24,7 +21,6 @@ node {
                 }"""
                 server.upload spec: uploadSpec
             }
-	   }
         }	    
 }
     post {	
