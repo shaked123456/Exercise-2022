@@ -1,0 +1,46 @@
+pipeline {	
+    agent {
+        dockerfile{
+	     filename 'Dockerfile'
+             args '--privileged --add-host artifactory-tlv:192.168.1.242'
+	     label 'zip-job-docker'}
+        }
+
+    stages {	    
+	stage('Build Stage') {    
+            steps {
+                sh 'python3 zip_job.py'
+            }
+         }
+
+        stage('Upload zip files to Artifactory') {
+            steps {
+                def server = Artifactory.newServer url: 'http://artifactory-tlv:8082/artifactory/', username: 'admin', password: 'Nopass5!'
+                def uploadSpec = """{
+                  "files": [
+                    {
+                      "pattern": "*1.2.0.zip",
+                      "target": "binary-storage/${VER}/"
+                    }
+                  ]
+                }"""
+                server.upload spec: uploadSpec
+            }
+        }	    
+}
+    post {	
+	always {
+            cleanWs()
+	}
+	failure {
+	    mail to: "shaked@wizards.co.il",
+            subject: "Jenkins - Pipeline Failed",
+            body: "Pipeline Failed: ${env.BUILD_URL}"
+	}
+	success {
+	    mail to: "shaked@wizards.co.il",
+            subject: "Jenkins - Pipeline Succeeded",
+            body: "Pipeline Succeeded: ${env.BUILD_URL}"
+	}	    
+}
+}	
