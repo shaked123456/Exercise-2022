@@ -1,5 +1,5 @@
 pipeline {	
-    agent {
+    node {
         dockerfile{
 	     filename 'Dockerfile'
              args '--privileged --add-host artifactory-tlv:192.168.1.242'
