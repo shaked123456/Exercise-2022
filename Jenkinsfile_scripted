@@ -25,4 +25,5 @@ node {
     } 
     step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'shaked@wizards.co.il', sendToIndividuals: true])
     }
+    cleanWs()
 }
