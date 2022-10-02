@@ -22,7 +22,7 @@ pipeline {
                        timeout: 300
                )
 	       rtUpload (
-                       serverId: 'Artifactory-1',
+                       serverId: 'artifactory-tlv',
                        spec: '''{
                              "files": [   
                                {
