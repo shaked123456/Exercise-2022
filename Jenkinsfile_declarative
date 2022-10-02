@@ -26,7 +26,6 @@ pipeline {
                )
 	       rtUpload (
                        serverId: 'artifactory-tlv',
-		       buildInfo.env.collect(),
                        spec: '''{
                              "files": [   
                                {
