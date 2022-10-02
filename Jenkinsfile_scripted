@@ -19,11 +19,6 @@ node {
                 server.upload spec: uploadSpec
             }	    
 }
-      stage ('Mail') {
-          catchError {
-        sh 'exit 1'
-    } 
     step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'shaked@wizards.co.il', sendToIndividuals: true])
-    }
     cleanWs()
 }
