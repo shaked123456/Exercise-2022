@@ -1,8 +1,5 @@
 node {
-        dockerfile{
-	     filename 'Dockerfile'
-             args '--privileged --add-host artifactory-tlv:192.168.1.242'
-	     label 'zip-job-docker'}
+	withDockerContainer(args: '--privileged --add-host artifactory-tlv:192.168.1.242', image: 'zip-job-docker:v1'){
 	     
 	stage('Build Stage') {    
                 sh 'python3 zip_job.py'
@@ -37,4 +34,5 @@ node {
             subject: "Jenkins - Pipeline Succeeded",
             body: "Pipeline Succeeded: ${env.BUILD_URL}"
 	}	    
+}
 }
