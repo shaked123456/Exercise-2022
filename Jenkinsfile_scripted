@@ -1,6 +1,6 @@
 node {
 	checkout scm
-	withDockerContainer(args: '--privileged --add-host artifactory-tlv:192.168.1.242', image: 'zip-job-docker:v1'){
+	withDockerContainer(args: '--privileged --add-host artifactory-tlv:192.168.1.242', image: 'zip-job-docker:v1', label: 'zip-job-docker'){
 	     
 	stage('Build Stage') {    
                 sh 'python3 zip_job.py'
@@ -24,7 +24,7 @@ try {
 } catch (all) {
     currentBuild.result = "FAILURE"
 } finally {
-     node('master') {
+     node('zip-job-docker') {
         step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'shaked@wizards.co.il', sendToIndividuals: true])
     }   
 }
