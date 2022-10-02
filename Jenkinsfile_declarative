@@ -21,6 +21,17 @@ pipeline {
                        password: 'Nopass5!',
                        timeout: 300
                )
+	       rtUpload (
+                       serverId: 'Artifactory-1',
+                       spec: '''{
+                             "files": [   
+                               {
+			         "pattern": "*1.2.0.zip",
+                                 "target": "binary-storage"
+                               }
+                             ]
+                       }'''
+               )
             }
         }	    
 }
