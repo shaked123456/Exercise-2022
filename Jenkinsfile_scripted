@@ -15,6 +15,7 @@ pipeline {
 
         stage('Upload zip files to Artifactory') {
             steps {
+	     script {
                 def server = Artifactory.newServer url: 'http://artifactory-tlv:8082/artifactory/', username: 'admin', password: 'Nopass5!'
                 def uploadSpec = """{
                   "files": [
@@ -26,6 +27,7 @@ pipeline {
                 }"""
                 server.upload spec: uploadSpec
             }
+	   }
         }	    
 }
     post {	
