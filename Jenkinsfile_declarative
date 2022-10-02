@@ -5,9 +5,7 @@ pipeline {
              args '--privileged --add-host artifactory-tlv:192.168.1.242'
 	     label 'zip-job-docker'}
         }
-    environment {
-    VERSION=$VERSION
-    }
+
     stages {	    
 	stage('Build Stage') {    
             steps {
@@ -17,7 +15,6 @@ pipeline {
 
         stage('Upload zip files to Artifactory') {
             steps {
-	        sh "echo ${VERSION}"
 		rtServer (
                        id: 'artifactory-tlv',
     		       url: 'http://artifactory-tlv:8082/artifactory/',
